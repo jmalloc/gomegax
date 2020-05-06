@@ -36,7 +36,7 @@ func (m *equalMatcher) Match(actual interface{}) (success bool, err error) {
 }
 
 func (m *equalMatcher) FailureMessage(actual interface{}) (message string) {
-	diff := cmp.Diff(actual, m.expected, m.options)
+	diff := cmp.Diff(m.expected, actual, m.options)
 	return "Expected no difference, got:\n" + format.IndentString(diff, 1)
 }
 
